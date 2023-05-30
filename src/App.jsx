@@ -1,6 +1,7 @@
 import { useReducer, useState } from "react";
 import "./App.css";
 import Find from "./Find";
+import Find2 from "./Find2";
 
 //Le state initial doit être un object
 const initialState = {
@@ -39,7 +40,7 @@ function App() {
       </button>
       <button onClick={() => dispacth({ type: "reset" })}>Reset</button>
       <hr />
-      
+      <Find2 />
     </>
   );
 }
