@@ -1,5 +1,6 @@
 import { useReducer, useState } from 'react'
 import './App.css'
+import Find from './Find'
 
 //Le state initial doit être un object
 const initialState = {
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <>
+         <Find />
     Counter : {state.count}
     <button onClick={()=> dispacth({type:"decr"})}>-</button>
     <button onClick={()=> dispacth({type:"incr"})}>+</button>
