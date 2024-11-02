@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Form from "./Form2";
+import Form2 from "./Form2";
 import { Fragment } from "react";
 
 const Find = () => {
@@ -11,7 +11,7 @@ const Find = () => {
 
   return (
     <Fragment>
-      <Form random={random} />
+      <Form2 random={random} />
     </Fragment>
   );
 };

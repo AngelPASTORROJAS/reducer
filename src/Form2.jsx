@@ -1,41 +1,40 @@
 import { useEffect, useState } from "react";
 
+const initialState = {
+  min:1,
+  max: 100,
+  number,
+  number_searcher,
+  nbessai:0,
+  trouver:false,
+  message:this.trouver?"non":"oui"
+}
+
+const mesage= {
+  trouver: "Bravo, vous avez trouvé en " + initialState.number + "essais",
+  non_trouver: "Le nombre doit être compris entre "+initialState.min+" et "+initialState.max
+}
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "incr":
+      return { ...state, count: state.count + 1 };
+    default:
+      break;
+  }
+};
 
 const Form = ({ random }) => {
-  const [number, setNumber] = useState();
-  const [message, setMessage] = useState("");
-  const [min, setMin] = useState(1);
-  const [max, setMax] = useState(100);
-  const [count, setCount] = useState(0);
+  initialState.number_searcher = parseInt(random)
+  const [state, dispacth] = useReducer(reducer, initialState);
 
-  useEffect(() => {
-    setCount(count + 1);
-  }, [min, max, message]);
-
-  const valid = () => {
-    if (parseInt(number) === random) {
-      setMessage("Bravo, vous avez trouvé en " + count + "essais");
-    } else if (parseInt(number) <= random) {
-      setMin(parseInt(number));
-    } else if (parseInt(number) >= random) {
-      setMax(parseInt(number));
-    }
-
-    setNumber("");
-  };
+  useEffect( ()=>{
+  }, initialState)
 
   return (
     <>
-      <input
-        type="number"
-        value={number}
-        onChange={(e) => setNumber(e.target.value)}
-      />
-      <button onClick={valid}>OK</button>
-      <p>{message}</p>
-      <p>
-        Le nombre doit être compris entre {min} et {max}
-      </p>
+      Counter : {state.number}
+      <button onClick={() => dispacth({ type: "decr" })}>-</button>
     </>
   );
 };
